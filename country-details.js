@@ -16,9 +16,13 @@ const languages = document.querySelector('.language');
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
 .then((res) => res.json())
 .then(([country]) => {
-    console.log(country);
+    // console.log(country);
 
-    countryImage.src = country.flags.svg;
+    if(country.name.common === " ") {
+        countryImage.src = country.flags.svg;
+    } else {
+        countryImage.src = country.flags.png;
+    }
     countryNameH2.innerText = country.name.common;
     if(country.name.nativeName) {
         nativeName.innerText = Object.values(country.name.nativeName)[0].common;
@@ -43,3 +47,7 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
         languages.innerText = country.languages;
     }
 })
+
+
+
+

@@ -5,6 +5,7 @@ fetch ('https://restcountries.com/v3.1/all?fields=name,flags,capital,region,popu
 .then((data) => {
     data.forEach((country) => {
         // console.log(country);
+
         const countryCard = document.createElement('a');
         countryCard.classList.add('country-card');
         countryCard.href =`/country-details.html?name=${country.name.common}`
