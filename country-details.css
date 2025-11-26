@@ -20,16 +20,37 @@ body {
     justify-content: space-between;
     margin-inline: auto;
 }
-
-.country-details-container {
-    width: 1300px;
+.header-content > h1 {
+    font-size: 36px;
+    font-weight: 800;
+}
+.main {
+    padding-inline: 24px;
+    max-width: 1300px;
     margin-inline: auto;
-     margin-top: 56px;
+    margin-top: 56px;
+}
+.back-btn {
+    box-shadow: 0px 0px 5px 0 rgba(0, 0, 0, 0.4);
+    color: inherit;
+    padding: 10px 24px;
+    border-radius: 5px;
+    text-decoration-line: none;
+    font-size: 20px;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+}
+.back-btn:hover {
+    box-shadow: 0px 0px 8px 0 rgba(0, 0, 0, 0.7);
+}
+.country-details-container {
     display: flex;
-    gap: 160px;
+    gap: 110px;
+    margin-top: 56px;
 }
 .country-details-container img {
-    max-width: 530px;
+    max-width: 580px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
 }
 .all-text-container > h2 {
     margin-block: 16px;
@@ -38,7 +59,7 @@ body {
 }
 .side-text-container {
     display: flex;
-    gap: 130px;
+    gap: 96px;
 }
 .paragraph-text > p {
     margin-block: 6px;
@@ -48,6 +69,7 @@ body {
     align-items: center;
     gap: 28px;
     margin-top: 36px;
+    padding-bottom: 96px;
 }
 .all-btn {
     display: flex;
@@ -57,4 +79,47 @@ body {
 .btn {
     padding: 5px 16px;
     cursor: pointer;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+.btn:hover {
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.9);
+}
+
+@media(max-width:1200px) {
+    .country-details-container img {
+        max-width: 440px;
+    }
+    .border-container {
+        margin-top: 16px;
+    }
+    .country-details-container {
+        gap: 56px;
+    }
+    .side-text-container {
+        gap: 36px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .header-content > h1 {
+        font-size: 16px;
+    }
+.country-details-container {
+    flex-direction: column;
+    gap: 64px;
+}
+.side-text-container {
+    flex-direction: column;
+    gap: 36px;
+}
+.border-container {
+    flex-direction: column;
+    align-items: start;
+    gap: 8px; 
+}
+.country-details-container img {
+    max-width: 100%;
+}
 }

@@ -25,7 +25,15 @@
         </div>
     </header>
 
-    <main>
+    <main class="main">
+        <div class="back-btn-container">
+            <a href="/" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back
+            </a>
+        </div>
+
+
         <div class="country-details-container">
             <div>
                 <img src="https://flagcdn.com/ag.svg" alt="">
@@ -35,30 +43,33 @@
                 <div class="side-text-container">
                     <div class="paragraph-text">
                         <p>
-                            <b>Native Name:</b> Belgie
+                            <b>Native Name:</b> <span class="native-name"></span>
                         </p>
                         <p>
-                            <b>Population:</b> 14541251
+                            <b>Population:</b> <span class="population"></span>
                         </p>
                         <p>
-                            <b>Region:</b> Europe
+                            <b>Region:</b> <span class="region"></span>
                         </p>
                         <p>
-                            <b>Sub Region:</b> Western Europe
+                            <b>Sub Region:</b> <span class="sub-region"></span>
                         </p>
                         <p>
-                            <b>Capital:</b> Brussels
+                            <b>Capital:</b> <span class="capital"></span>
                         </p>
                     </div>
                     <div class="paragraph-text">
                         <p>
-                            <b>Top Level Domain:</b> Be
+                            <b>Top Level Domain:</b> <span class="top-level-domain"></span>
                         </p>
                         <p>
-                            <b>Currencies:</b> Euro
+                            <b>Area:</b> <span class="area"></span>
                         </p>
                         <p>
-                            <b>Language:</b> Dutch, French, German
+                            <b>Currencies:</b> <span class="currency"></span>
+                        </p>
+                        <p>
+                            <b>Language:</b> <span class="language"></span>
                         </p>
                     </div>
                 </div>
@@ -87,4 +98,5 @@
         </div>
     </main>
 </body>
+    <script src="/country-details.js"></script>
 </html>
