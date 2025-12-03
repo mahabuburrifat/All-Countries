@@ -14,12 +14,12 @@
     <!-- link css -->
      <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="">
     <header class="header-container">
         <div class="header-content">
             <h1><a href="/">Where in the world</a></h1>
-            <p>
-                <i class="fa-regular fa-moon"></i>&nbsp;Dark mode
+            <p class="dark-mode">
+                <i class="fa-regular fa-moon moon"></i>&nbsp; <span>Dark mode</span>
             </p>
         </div>
     </header>
@@ -31,10 +31,12 @@
             </div>
             <select class="filter-region" id="">
                 <option hidden>Filter by Region</option>
-                <option value="Africa">Africa</option>
                 <option value="Asia">Asia</option>
+                <option value="Africa">Africa</option>
                 <option value="Europe">Europe</option>
-                <option value="Oceania">Oceania</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+                
             </select>
         </div>
         <div class="card-container"></div>

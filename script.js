@@ -1,6 +1,10 @@
 const cardContainer = document.querySelector('.card-container');
-const searchFilterContainer = document.querySelector('.search-filter-container');
+const filterRegion = document.querySelector('.filter-region');
 const searchContainer = document.querySelector('.search-container input');
+
+const darkMode = document.querySelector('.dark-mode');
+const icon = document.querySelector('.moon');
+
 
 
 let allCountriesData;
@@ -13,16 +17,30 @@ fetch ('https://restcountries.com/v3.1/all?fields=name,flags,capital,region,popu
     // console.log(allCountriesData)
 });
 
+
+
+filterRegion.addEventListener('change', (e) => {
+
+    fetch(`https://restcountries.com/v3.1/region/${e.target.value}`)
+    .then((res) => res.json())
+    .then(renderCountries)
+})
+
+
+
 searchContainer.addEventListener('input', (e) => {
     const filterCountries = allCountriesData.filter((country) => country.name.common.toLowerCase().includes(e.target.value.toLowerCase()))
+
+    if(filterCountries.length === 0) {
+        cardContainer.innerHTML = `<h1>Not Found</h1>`;
+        cardContainer.style.display = "flex";
+        cardContainer.style.justifyContent = "center";
+        cardContainer.style.alignItems = "center";
+        return;
+    }
         renderCountries(filterCountries)
 })
 
-searchFilterContainer.addEventListener('change', (e) => {
-    fetch (`https://restcountries.com/v3.1/region/${e.target.value}`)
-.then((res) => res.json())
-.then((renderCountries));
-})
 
 
 
@@ -48,3 +66,12 @@ function renderCountries (data) {
         cardContainer.append(countryCard);
     })
 }
+
+
+darkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark')
+    
+    if(dark) {
+        document.moon.classList.remove('fa-moon')
+    }
+})

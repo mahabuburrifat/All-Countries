@@ -13,6 +13,10 @@ const currency = document.querySelector('.currency');
 const languages = document.querySelector('.language');
 const borderContainer = document.querySelector('.border-container')
 
+
+const darkMode = document.querySelector('.dark-mode');
+
+
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
 .then((res) => res.json())
 .then(([country]) => {
@@ -45,7 +49,11 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
         languages.innerText = Object.values(country.languages).join(', ');
     } 
 
+    if(!country.borders){
+        borderContainer.innerHTML = `<h2>No border countries</h2>`;
+    }
     if(country.borders) {
+        
         country.borders.forEach((border) => {
             fetch(`https://restcountries.com/v3.1/alpha/${border}`)
             .then((res) => res.json())
@@ -56,14 +64,14 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
                 aButton.classList.add('border-btn');
                 aButton.innerText = borderCountry.name.common;
                 aButton.href = `country-details.html?name=${borderCountry.name.common}`
-                borderContainer.append(aButton);
-
-                
+                borderContainer.append(aButton); 
             })
         })
     }
 })
 
 
-
+darkMode.addEventListener('click', () => {
+    const dark = document.body.classList.toggle('dark')
+})
 
