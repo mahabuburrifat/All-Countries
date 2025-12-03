@@ -1,10 +1,28 @@
 const cardContainer = document.querySelector('.card-container');
+const searchFilterContainer = document.querySelector('.search-filter-container')
+
 
 fetch ('https://restcountries.com/v3.1/all?fields=name,flags,capital,region,population,nativename,subregion,toplaveldomain,currencies,languages')
 .then((res) => res.json())
-.then((data) => {
+.then((renderCountries));
+
+
+
+searchFilterContainer.addEventListener('change', (e) => {
+    fetch (`https://restcountries.com/v3.1/region/${e.target.value}`)
+.then((res) => res.json())
+.then((renderCountries));
+})
+
+
+
+
+function renderCountries (data) {
+    //loop er aga card container empty kora;
+    cardContainer.innerHTML = '';
+    
     data.forEach((country) => {
-        console.log(country);
+        // console.log(country);
 
         const countryCard = document.createElement('a');
         countryCard.classList.add('country-card');
@@ -20,8 +38,4 @@ fetch ('https://restcountries.com/v3.1/all?fields=name,flags,capital,region,popu
         `
         cardContainer.append(countryCard);
     })
-})
-
-
-
-
+}
