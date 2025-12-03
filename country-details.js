@@ -15,6 +15,8 @@ const borderContainer = document.querySelector('.border-container')
 
 
 const darkMode = document.querySelector('.dark-mode');
+const icon = document.querySelector('.moon');
+const text = document.querySelector('.text')
 
 
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
@@ -71,7 +73,33 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
 })
 
 
-darkMode.addEventListener('click', () => {
-    const dark = document.body.classList.toggle('dark')
-})
+const allMode = JSON.parse(localStorage.getItem('allMode')) || {};
 
+if(allMode.dark) {
+    document.body.classList.add('dark');
+    icon.classList.add('fa-sun');
+    icon.classList.remove('fa-moon');
+    text.innerText = 'Light mode';
+} else {
+    document.body.classList.remove('dark');
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
+    text.innerText = 'Dark mode';
+}
+
+darkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    
+    if(document.body.classList.contains('dark')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        text.innerText = 'Light mode';
+        allMode.dark = true;
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        text.innerText = 'Dark mode';
+        allMode.dark = false;
+    }
+    localStorage.setItem('allMode', JSON.stringify(allMode));
+})
