@@ -28,6 +28,11 @@ body {
     font-size: 36px;
     font-weight: 800;
 }
+.header-content a {
+    text-decoration-line: none;
+    color: inherit;
+    cursor: pointer;
+}
 .main {
     padding-inline: 24px;
     max-width: 1300px;
@@ -73,6 +78,7 @@ body {
 }
 
 .border-container {
+    margin-top: 56px;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -96,9 +102,7 @@ body {
     .country-details-container img {
         max-width: 440px;
     }
-    .border-container {
-        margin-top: 16px;
-    }
+    
     .country-details-container {
         gap: 56px;
     }

@@ -16,7 +16,7 @@ const borderContainer = document.querySelector('.border-container')
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
 .then((res) => res.json())
 .then(([country]) => {
-    console.log(country);
+    // console.log(country);
 
     if(country.name.common === " ") {
         countryImage.src = country.flags.svg;

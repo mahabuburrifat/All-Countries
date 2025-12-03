@@ -24,6 +24,11 @@ body {
     margin-inline: auto;
     z-index: 1;
 }
+.header-content a {
+    text-decoration-line: none;
+    color: inherit;
+    cursor: pointer;
+}
 main {
     max-width: 1300px;
     margin-inline: auto;
@@ -39,14 +44,14 @@ main {
     max-width: 420px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 8px 16px;
+    gap: 16px;
+    padding: 0px 0px 0px 16px;
     border-radius: 8px;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
 }
 
 .search-container input {
-    padding: 8px 4px;
+    padding: 16px 0px;
     width: 100%;
     border: none;
     outline: none;
@@ -123,11 +128,13 @@ main {
 .header-content > h1 {
     font-size: 18px;
 }
+
 }
 
 @media (max-width: 685px) {
     .search-filter-container {
         flex-direction: column;
+        align-items: center;
         gap: 36px;
     }
 }

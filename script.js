@@ -1,19 +1,28 @@
 const cardContainer = document.querySelector('.card-container');
-const searchFilterContainer = document.querySelector('.search-filter-container')
+const searchFilterContainer = document.querySelector('.search-filter-container');
+const searchContainer = document.querySelector('.search-container input');
 
+
+let allCountriesData;
 
 fetch ('https://restcountries.com/v3.1/all?fields=name,flags,capital,region,population,nativename,subregion,toplaveldomain,currencies,languages')
 .then((res) => res.json())
-.then((renderCountries));
+.then((data) => {
+    renderCountries(data);
+    allCountriesData = data;
+    // console.log(allCountriesData)
+});
 
-
+searchContainer.addEventListener('input', (e) => {
+    const filterCountries = allCountriesData.filter((country) => country.name.common.toLowerCase().includes(e.target.value.toLowerCase()))
+        renderCountries(filterCountries)
+})
 
 searchFilterContainer.addEventListener('change', (e) => {
     fetch (`https://restcountries.com/v3.1/region/${e.target.value}`)
 .then((res) => res.json())
 .then((renderCountries));
 })
-
 
 
 
